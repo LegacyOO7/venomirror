@@ -651,9 +651,9 @@ class GoogleDriveHelper:
             if self.num_of_path > 1:
                 self.edit_telegraph()
 
-            msg = f"<b>Found <code>{len(response['files'])}</code> results for <code>{fileName}</code></b>"
+            msg = f"<b>📂 Found {len(response['files'])} Results For : {fileName}</b>"
             buttons = button_build.ButtonMaker()   
-            buttons.buildbutton("🔎 VIEW", f"https://telegra.ph/{self.path[0]}")
+            buttons.buildbutton("🔎 VIEW YOUR RESULTS 🔍", f"https://telegra.ph/{self.path[0]}")
 
             return msg, InlineKeyboardMarkup(buttons.build_menu(1))
 
@@ -664,7 +664,7 @@ class GoogleDriveHelper:
         try:
             file_id = self.getIdFromUrl(link)
         except (KeyError,IndexError):
-            msg = "Google Drive ID could not be found in the provided link"
+            msg = "<b>Google Drive ID Could not be Found in the Provided Link</b>"
             return msg
         msg = ""
         LOGGER.info(f"File ID: {file_id}")
@@ -675,12 +675,12 @@ class GoogleDriveHelper:
             LOGGER.info(f"Counting: {name}")
             if drive_file['mimeType'] == self.__G_DRIVE_DIR_MIME_TYPE:
                 self.gDrive_directory(**drive_file)
-                msg += f'<b>☞ 📂Filename : </b><code>{name}</code>'
-                msg += f'\n<b>☞ 📦Size : </b><code>{get_readable_file_size(self.total_bytes)}</code>'
-                msg += f'\n<b>☞ 🌀Type : </b><code>Folder</code>'
-                msg += f'\n<b>☞ 🗳Powered by : @AT_BOTs</b>'
+                msg += f'<b>📂 Filename : </b><code>{name}</code>'
+                msg += f'\n\n<b>📦 Size : {get_readable_file_size(self.total_bytes)}</b>'
+                msg += f'\n<b>💽 Type : Folder</b>'
+                msg += f'\n\n<b>© Powered By : WhitE_DeviL09</b>'
             else:
-                msg += f'<b>☞ 📂Filename : </b><code>{name}</code>'
+                msg += f'<b>📂 Filename : </b><code>{name}</code>'
                 try:
                     typee = drive_file['mimeType']
                 except:
@@ -688,9 +688,9 @@ class GoogleDriveHelper:
                 try:
                     self.total_files += 1
                     self.gDrive_file(**drive_file)
-                    msg += f'\n<b>☞ 📦Size : </b><code>{get_readable_file_size(self.total_bytes)}</code>'
-                    msg += f'\n<b>☞ 🌀Type : </b><code>{typee}</code>'
-                    msg += f'\n<b>☞ 🗳Powered by : @AT_BOTs</b>'
+                    msg += f'\n\n<b>💽 Size : {get_readable_file_size(self.total_bytes)}</b>'
+                    msg += f'\n<b>📦 Type : {typee}</b>'
+                    msg += f'\n\n<b>© Powered By : WhitE_DeviL09</b>'
                 except TypeError:
                     pass
         except Exception as err:
@@ -726,7 +726,7 @@ class GoogleDriveHelper:
         try:
             file_id = self.getIdFromUrl(link)
         except (KeyError,IndexError):
-            msg = "Google Drive ID could not be found in the provided link"
+            msg = "<b>Google Drive ID Could not be Found in the Provided Link</b>"
             return msg, "", "", ""
         LOGGER.info(f"File ID: {file_id}")
         try:
