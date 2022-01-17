@@ -379,8 +379,7 @@ class GoogleDriveHelper:
                     LOGGER.info(f"{msg}")
                     return "Your Clone has been Stopped and Cloned data has been deleted!", "cancelled"
                 msg += f'<b>📂 Filename : </b><code>{meta.get("name")}</code>\n\n<b>💽 Size : {get_readable_file_size(self.transferred_size)}</b>'
-                msg += f'\n<b>📦 Type : Folder</b>'
-                msg += f'\n\n<b>© Powerd By : WhitE_DeviL09</b>'
+                msg += f'\n<b>📦 Type : Folder</b>'              
                 buttons = button_build.ButtonMaker()
                 if SHORTENER is not None and SHORTENER_API is not None:
                     surl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={durl}&format=text').text
@@ -416,8 +415,7 @@ class GoogleDriveHelper:
                 except:
                     typeee = 'File' 
                 try:
-                    msg += f'\n<b>📦 Size : {get_readable_file_size(int(meta.get("size")))}</b>'
-                    msg += f'\n<b>© Powerd By : WhitE_DeviL09</b> '
+                    msg += f'\n<b>📦 Size : {get_readable_file_size(int(meta.get("size")))}</b>                
                 except TypeError:
                     pass
                 if INDEX_URL is not None:
@@ -677,8 +675,7 @@ class GoogleDriveHelper:
                 self.gDrive_directory(**drive_file)
                 msg += f'<b>📂 Filename : </b><code>{name}</code>'
                 msg += f'\n\n<b>📦 Size : {get_readable_file_size(self.total_bytes)}</b>'
-                msg += f'\n<b>💽 Type : Folder</b>'
-                msg += f'\n\n<b>© Powered By : WhitE_DeviL09</b>'
+                msg += f'\n<b>💽 Type : Folder</b>'              
             else:
                 msg += f'<b>📂 Filename : </b><code>{name}</code>'
                 try:
@@ -689,8 +686,7 @@ class GoogleDriveHelper:
                     self.total_files += 1
                     self.gDrive_file(**drive_file)
                     msg += f'\n\n<b>💽 Size : {get_readable_file_size(self.total_bytes)}</b>'
-                    msg += f'\n<b>📦 Type : {typee}</b>'
-                    msg += f'\n\n<b>© Powered By : WhitE_DeviL09</b>'
+                    msg += f'\n<b>📦 Type : {typee}</b>'                  
                 except TypeError:
                     pass
         except Exception as err:
