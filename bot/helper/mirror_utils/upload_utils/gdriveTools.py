@@ -417,7 +417,7 @@ class GoogleDriveHelper:
                     typeee = 'File' 
                 try:
                     msg += f'\n\n<b>💽 Size : {get_readable_file_size(int(meta.get("size")))}</b>'
-                    #msg += f'\n\n<b>© Powerd By : WhitE_DeviL09.</b> '
+                    msg += f'\n\n<b>© Powerd By : WhitE_DeviL09</b>'
                 except TypeError:
                     pass
                 if INDEX_URL is not None:
@@ -676,8 +676,8 @@ class GoogleDriveHelper:
             if drive_file['mimeType'] == self.__G_DRIVE_DIR_MIME_TYPE:
                 self.gDrive_directory(**drive_file)
                 msg += f'<b>📂 Filename : </b><code>{name}</code>'
-                msg += f'\n\n<b>📦 Size : {get_readable_file_size(self.total_bytes)}</b>'
-                msg += f'\n<b>💽 Type : Folder</b>'
+                msg += f'\n\n<b>💽 Size : {get_readable_file_size(self.total_bytes)}</b>'
+                msg += f'\n<b>📦 Type : Folder</b>'
                 msg += f'\n\n<b>© Powered By : WhitE_DeviL09</b>'
             else:
                 msg += f'<b>📂 Filename : </b><code>{name}</code>'
