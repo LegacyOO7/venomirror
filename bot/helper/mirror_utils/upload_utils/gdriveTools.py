@@ -675,12 +675,12 @@ class GoogleDriveHelper:
             LOGGER.info(f"Counting: {name}")
             if drive_file['mimeType'] == self.__G_DRIVE_DIR_MIME_TYPE:
                 self.gDrive_directory(**drive_file)
-                msg += f'<b>📂 Filename : </b><code>{name}</code>'
-                msg += f'\n\n<b>📦 Size : {get_readable_file_size(self.total_bytes)}</b>'
-                msg += f'\n<b>💽 Type : Folder</b>'
-                msg += f'\n\n<b>© Powered By : WhitE_DeviL09</b>'
+                msg += f'<b>☞ 📂Filename : </b><code>{name}</code>'
+                msg += f'\n<b>☞ 📦Size : </b><code>{get_readable_file_size(self.total_bytes)}</code>'
+                msg += f'\n<b>☞ 🌀Type : </b><code>Folder</code>'
+                msg += f'\n<b>☞ 🗳Powered by : @AT_BOTs</b>'
             else:
-                msg += f'<b>📂 Filename : </b><code>{name}</code>'
+                msg += f'<b>☞ 📂Filename : </b><code>{name}</code>'
                 try:
                     typee = drive_file['mimeType']
                 except:
@@ -688,9 +688,9 @@ class GoogleDriveHelper:
                 try:
                     self.total_files += 1
                     self.gDrive_file(**drive_file)
-                    msg += f'\n\n<b>💽 Size : {get_readable_file_size(self.total_bytes)}</b>'
-                    msg += f'\n<b>📦 Type : {typee}</b>'
-                    msg += f'\n\n<b>© Powered By : WhitE_DeviL09</b>'
+                    msg += f'\n<b>☞ 📦Size : </b><code>{get_readable_file_size(self.total_bytes)}</code>'
+                    msg += f'\n<b>☞ 🌀Type : </b><code>{typee}</code>'
+                    msg += f'\n<b>☞ 🗳Powered by : @AT_BOTs</b>'        
                 except TypeError:
                     pass
         except Exception as err:
