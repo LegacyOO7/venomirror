@@ -11,17 +11,17 @@ def list_drive(update, context):
     try:
         search = update.message.text.split(' ',maxsplit=1)[1]
         LOGGER.info(f"Searching: {search}")
-        reply = sendMessage('<b>🔎 Searching..... Please wait!</b>', context.bot, update)
+        reply = sendMessage('Searching..... Please wait!', context.bot, update)
         gdrive = GoogleDriveHelper(None)
         msg, button = gdrive.drive_list(search)
 
         if button:
             editMessage(msg, reply, button)
         else:
-            editMessage(f'<b>No Result Found For {search} ❌</b>', reply, button)
+            editMessage(f'No result found for <code>{search}</code>', reply, button)
 
     except IndexError:
-        sendMessage('<b>📨 Send a Search Key along with Command</b>', context.bot, update)
+        sendMessage('Send a search key along with command', context.bot, update)
 
 
 def gdtot(update, context):
@@ -31,7 +31,7 @@ def gdtot(update, context):
         for glink in search_list:
             LOGGER.info(f"Extracting gdtot link: {glink}")
             button = None
-            reply = sendMessage('<b>🔁 Getting Your GDTOT File Wait....</b>', context.bot, update)
+            reply = sendMessage('Getting Your GDTOT File Wait....', context.bot, update)
             file_name, file_url = GDTOT().parse(url=glink)
             if file_name == 404:
                 sendMessage(file_url, context.bot, update)
@@ -44,7 +44,7 @@ def gdtot(update, context):
             else:
                 editMessage(file_name, reply, button)
     except IndexError:
-        sendMessage('<b>📨 Send cmd along with url</b>', context.bot, update)
+        sendMessage('Send cmd along with url', context.bot, update)
     except Exception as e:
         LOGGER.info(e)
 
