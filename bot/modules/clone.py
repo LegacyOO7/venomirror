@@ -20,10 +20,10 @@ def cloneNode(update, context):
             sendMessage(res, context.bot, update)
             return
         if STOP_DUPLICATE:
-            LOGGER.info(f"<b>Ⓜ️ Checking File/Folder if already in Drive...🤔</b>")
+            LOGGER.info(f"Checking File/Folder if already in Drive...")
             smsg, button = gd.drive_list(name)
             if smsg:
-                msg3 = "<b>Ⓜ️ File/Folder is already Available in Drive 🤒\n 📂 Here are the Search Results 👇</b>"
+                msg3 = "File/Folder is already available in Drive.\nHere are the search results:"
                 sendMarkup(msg3, context.bot, update, button)
                 return
         if CLONE_LIMIT is not None:
@@ -33,7 +33,7 @@ def cloneNode(update, context):
                 sendMessage(msg2, context.bot, update)
                 return
         if files < 15:
-            msg = sendMessage(f"<b>♻️ Cloning :</b> <code>{link}</code>", context.bot, update)
+            msg = sendMessage(f"Cloning: <code>{link}</code>", context.bot, update)
             result, button = gd.clone(link)
             deleteMessage(context.bot, msg)
         else:
@@ -61,14 +61,14 @@ def cloneNode(update, context):
         else:
             uname = f'<a href="tg://user?id={update.message.from_user.id}">{update.message.from_user.first_name}</a>'
         if uname is not None:
-            cc = f'\n\n<b>🔰 Cloned By : {uname}</b>\n\n<b>© Powered By : WhitE_DeviL09'
+            cc = f'\n\ncc: {uname}'
             men = f'{uname} '
         if button == "cancelled" or button == "":
             sendMessage(men + result, context.bot, update)
         else:
             sendMarkup(result + cc, context.bot, update, button)
     else:
-        sendMessage('<b>📎 Provide G-Drive Shareable Link to Clone 🤒</b>', context.bot, update)
+        sendMessage('Provide G-Drive Shareable Link to Clone.', context.bot, update)
 
 clone_handler = CommandHandler(BotCommands.CloneCommand, cloneNode, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 dispatcher.add_handler(clone_handler)
