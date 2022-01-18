@@ -726,7 +726,7 @@ class GoogleDriveHelper:
         try:
             file_id = self.getIdFromUrl(link)
         except (KeyError,IndexError):
-            msg = "<b>Google Drive ID Could not be Found in the Provided Link</b>"
+            msg = "<b>⚙️ Google Drive ID Could Not be Found in the Provided Link 🤔</b>"
             return msg, "", "", ""
         LOGGER.info(f"File ID: {file_id}")
         try:
@@ -748,7 +748,7 @@ class GoogleDriveHelper:
             err = str(err).replace('>', '').replace('<', '')
             LOGGER.error(err)
             if "File not found" in str(err):
-                msg = "File not found."
+                msg = "<b>📂 File Not Found ❌</b>"
             else:
                 msg = f"Error.\n{err}"
             return msg, "", "", ""
