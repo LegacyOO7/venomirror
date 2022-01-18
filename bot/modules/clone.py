@@ -23,7 +23,7 @@ def cloneNode(update, context):
             LOGGER.info(f"Checking File/Folder if already in Drive...")
             smsg, button = gd.drive_list(name)
             if smsg:
-                msg3 = "<b>📂 File/Folder is already Available in Drive! 😎\n\n🔎 Here are the Search Results 👇</b>"
+                msg3 = "<b>📂 File/Folder is already Available in Drive! 😎\n\n🔥 Here are the Search Results 👇</b>"
                 sendMarkup(msg3, context.bot, update, button)
                 return
         if CLONE_LIMIT is not None:
@@ -68,7 +68,7 @@ def cloneNode(update, context):
         else:
             sendMarkup(result + cc, context.bot, update, button)
     else:
-        sendMessage('<b>🔗 Provide G-Drive Shareable Link to Clone.</b>', context.bot, update)
+        sendMessage('<b>🔗 Provide G-Drive Shareable Link to Clone 😎</b>', context.bot, update)
 
 clone_handler = CommandHandler(BotCommands.CloneCommand, cloneNode, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 dispatcher.add_handler(clone_handler)
