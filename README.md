@@ -1,4 +1,4 @@
-[![Slam](https://telegra.ph/file/019996f816db9ed576cff.jpg)]
+[![DREAMCATCHER](https://telegra.ph/file/92f70ce8364f6cdf3b0db.jpg)]
 
 # Mirror Bot
 This is a telegram bot writen in python for mirroring files on the internet to our beloved Google Drive.
