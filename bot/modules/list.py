@@ -44,7 +44,7 @@ def gdtot(update, context):
             else:
                 editMessage(file_name, reply, button)
     except IndexError:
-        sendMessage('<b>📨 Send Comment Along With Url 😐</b>', context.bot, update)
+        sendMessage('<b>📨 Please Send Comment Along With GDTOT Url 😐</b>', context.bot, update)
     except Exception as e:
         LOGGER.info(e)
 
